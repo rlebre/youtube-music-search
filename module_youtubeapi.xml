@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_youtubeapi" default="compile.module.youtubeapi">
+  <dirname property="module.youtubeapi.basedir" file="${ant.file.module_youtubeapi}"/>
+  
+  <property name="module.jdk.home.youtubeapi" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.youtubeapi" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.youtubeapi" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.youtubeapi" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="youtubeapi.output.dir" value="${module.youtubeapi.basedir}/target/classes"/>
+  <property name="youtubeapi.testoutput.dir" value="${module.youtubeapi.basedir}/target/test-classes"/>
+  
+  <path id="youtubeapi.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="youtubeapi.module.production.classpath">
+    <path refid="${module.jdk.classpath.youtubeapi}"/>
+    <path refid="library.maven:_com.google.apis:google-api-services-youtube:v3-rev8-1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.api-client:google-api-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client-jackson2:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava-jdk5:13.0.classpath"/>
+    <path refid="library.maven:_xpp3:xpp3:1.1.4c.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.0.5.classpath"/>
+    <path refid="library.maven:_org.json:json:20160212.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_se.michaelthelin.spotify:spotify-web-api-java:1.5.0.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:2.5.0.classpath"/>
+    <path refid="library.maven:_commons-httpclient:commons-httpclient:3.1.classpath"/>
+    <path refid="library.maven:_net.sf.json-lib:json-lib:jdk15:2.4.classpath"/>
+    <path refid="library.maven:_commons-beanutils:commons-beanutils:1.8.0.classpath"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.2.1.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_net.sf.ezmorph:ezmorph:1.0.6.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:18.0.classpath"/>
+    <path refid="library.maven:_commons-cli:commons-cli:1.3.1.classpath"/>
+  </path>
+  
+  <path id="youtubeapi.runtime.production.module.classpath">
+    <pathelement location="${youtubeapi.output.dir}"/>
+    <path refid="library.maven:_com.google.apis:google-api-services-youtube:v3-rev8-1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.api-client:google-api-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client-jackson2:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava-jdk5:13.0.classpath"/>
+    <path refid="library.maven:_xpp3:xpp3:1.1.4c.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.0.5.classpath"/>
+    <path refid="library.maven:_org.json:json:20160212.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_se.michaelthelin.spotify:spotify-web-api-java:1.5.0.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:2.5.0.classpath"/>
+    <path refid="library.maven:_commons-httpclient:commons-httpclient:3.1.classpath"/>
+    <path refid="library.maven:_net.sf.json-lib:json-lib:jdk15:2.4.classpath"/>
+    <path refid="library.maven:_commons-beanutils:commons-beanutils:1.8.0.classpath"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.2.1.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_net.sf.ezmorph:ezmorph:1.0.6.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:18.0.classpath"/>
+    <path refid="library.maven:_commons-cli:commons-cli:1.3.1.classpath"/>
+  </path>
+  
+  <path id="youtubeapi.module.classpath">
+    <path refid="${module.jdk.classpath.youtubeapi}"/>
+    <pathelement location="${youtubeapi.output.dir}"/>
+    <path refid="library.maven:_com.google.apis:google-api-services-youtube:v3-rev8-1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.api-client:google-api-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client-jackson2:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava-jdk5:13.0.classpath"/>
+    <path refid="library.maven:_xpp3:xpp3:1.1.4c.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.0.5.classpath"/>
+    <path refid="library.maven:_org.json:json:20160212.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_se.michaelthelin.spotify:spotify-web-api-java:1.5.0.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:2.5.0.classpath"/>
+    <path refid="library.maven:_commons-httpclient:commons-httpclient:3.1.classpath"/>
+    <path refid="library.maven:_net.sf.json-lib:json-lib:jdk15:2.4.classpath"/>
+    <path refid="library.maven:_commons-beanutils:commons-beanutils:1.8.0.classpath"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.2.1.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_net.sf.ezmorph:ezmorph:1.0.6.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:18.0.classpath"/>
+    <path refid="library.maven:_commons-cli:commons-cli:1.3.1.classpath"/>
+  </path>
+  
+  <path id="youtubeapi.runtime.module.classpath">
+    <pathelement location="${youtubeapi.testoutput.dir}"/>
+    <pathelement location="${youtubeapi.output.dir}"/>
+    <path refid="library.maven:_com.google.apis:google-api-services-youtube:v3-rev8-1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.api-client:google-api-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.oauth-client:google-oauth-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client-jackson2:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.http-client:google-http-client:1.12.0-beta.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava-jdk5:13.0.classpath"/>
+    <path refid="library.maven:_xpp3:xpp3:1.1.4c.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.0.5.classpath"/>
+    <path refid="library.maven:_org.json:json:20160212.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.4.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.9.classpath"/>
+    <path refid="library.maven:_se.michaelthelin.spotify:spotify-web-api-java:1.5.0.classpath"/>
+    <path refid="library.maven:_com.google.protobuf:protobuf-java:2.5.0.classpath"/>
+    <path refid="library.maven:_commons-httpclient:commons-httpclient:3.1.classpath"/>
+    <path refid="library.maven:_net.sf.json-lib:json-lib:jdk15:2.4.classpath"/>
+    <path refid="library.maven:_commons-beanutils:commons-beanutils:1.8.0.classpath"/>
+    <path refid="library.maven:_commons-collections:commons-collections:3.2.1.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_net.sf.ezmorph:ezmorph:1.0.6.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:18.0.classpath"/>
+    <path refid="library.maven:_commons-cli:commons-cli:1.3.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.youtubeapi">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.youtubeapi">
+    <patternset refid="excluded.from.module.youtubeapi"/>
+  </patternset>
+  
+  <path id="youtubeapi.module.sourcepath">
+    <dirset dir="${module.youtubeapi.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="youtubeapi.module.test.sourcepath">
+    <dirset dir="${module.youtubeapi.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.youtubeapi" depends="compile.module.youtubeapi.production,compile.module.youtubeapi.tests" description="Compile module youtubeapi"/>
+  
+  <target name="compile.module.youtubeapi.production" depends="register.custom.compilers" description="Compile module youtubeapi; production classes">
+    <mkdir dir="${youtubeapi.output.dir}"/>
+    <javac2 destdir="${youtubeapi.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.youtubeapi}/javac">
+      <compilerarg line="${compiler.args.youtubeapi}"/>
+      <bootclasspath refid="youtubeapi.module.bootclasspath"/>
+      <classpath refid="youtubeapi.module.production.classpath"/>
+      <src refid="youtubeapi.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.youtubeapi"/>
+    </javac2>
+    
+    <copy todir="${youtubeapi.output.dir}">
+      <fileset dir="${module.youtubeapi.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.youtubeapi.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.youtubeapi.tests" depends="register.custom.compilers,compile.module.youtubeapi.production" description="compile module youtubeapi; test classes" unless="skip.tests">
+    <mkdir dir="${youtubeapi.testoutput.dir}"/>
+    <javac2 destdir="${youtubeapi.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.youtubeapi}/javac">
+      <compilerarg line="${compiler.args.youtubeapi}"/>
+      <bootclasspath refid="youtubeapi.module.bootclasspath"/>
+      <classpath refid="youtubeapi.module.classpath"/>
+      <src refid="youtubeapi.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.youtubeapi"/>
+    </javac2>
+    
+    <copy todir="${youtubeapi.testoutput.dir}">
+      <fileset dir="${module.youtubeapi.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.youtubeapi" description="cleanup module">
+    <delete dir="${youtubeapi.output.dir}"/>
+    <delete dir="${youtubeapi.testoutput.dir}"/>
+  </target>
+</project>
